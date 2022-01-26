@@ -1,0 +1,77 @@
+print("---------Игра в крестики нолики--------- made by Gennadii Patenko FPW-58")
+playboard = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+X_move = "X"
+O_move = "0"
+movelist = []
+
+
+def board_x():
+    print("", "_" * 13)
+    print("", "|", playboard[0], "|", playboard[1], "|", playboard[2], "|")
+    print("", "_" * 13)
+    print("", "|", playboard[3], "|", playboard[4], "|", playboard[5], "|")
+    print("", "_" * 13)
+    print("", "|", playboard[6], "|", playboard[7], "|", playboard[8], "|")
+    print("", "-" * 13)
+
+    do_move = input("Где Вы хотите поставить X? -> ")
+
+    if (do_move in playboard) and (do_move not in movelist):
+        movelist.append(do_move)
+        playboard[int(do_move) - 1] = X_move
+        print("", "_" * 13)
+        print("", "|", playboard[0], "|", playboard[1], "|", playboard[2], "|")
+        print("", "_" * 13)
+        print("", "|", playboard[3], "|", playboard[4], "|", playboard[5], "|")
+        print("", "_" * 13)
+        print("", "|", playboard[6], "|", playboard[7], "|", playboard[8], "|")
+        print("", "-" * 13)
+    else:
+        print("Введите число от 1 до 9 в незанятое поле. Это не может быть иная цифра,буква или пустой ввод!")
+        board_x()
+    return ()
+
+
+
+def board_0():
+    do_move = input("Где Вы хотите поставить 0? -> ")
+
+    if (do_move in playboard) and (do_move not in movelist):
+        movelist.append(do_move)
+        playboard[int(do_move) - 1] = O_move
+        print("", "_" * 13)
+        print("", "|", playboard[0], "|", playboard[1], "|", playboard[2], "|")
+        print("", "_" * 13)
+        print("", "|", playboard[3], "|", playboard[4], "|", playboard[5], "|")
+        print("", "_" * 13)
+        print("", "|", playboard[6], "|", playboard[7], "|", playboard[8], "|")
+        print("", "-" * 13)
+    else:
+        print("Введите число от 1 до 9 в незанятое поле. Это не может быть иная цифра,буква или пустой ввод!")
+        board_0()
+    return()
+
+
+for i in range(11):
+    i += 1
+    if i == 10 and (playboard[0] == X_move and playboard[1] == X_move and playboard[2] == X_move) or (playboard[0] == X_move and playboard[3] == X_move and playboard[6] == X_move) or (playboard[3] == X_move and playboard[4] == X_move and playboard[5] == X_move) or (playboard[6] == X_move and playboard[7] == X_move and playboard[8] == X_move) or (playboard[1] == X_move and playboard[4] == X_move and playboard[7] == X_move) or (playboard[2] == X_move and playboard[5] == X_move and playboard[8] == X_move) or (playboard[0] == X_move and playboard[4] == X_move and playboard[8] == X_move) or (playboard[2] == X_move and playboard[4] == X_move and playboard[6] == X_move):
+        print("Игрок, играющий иксом, выиграл!")
+        break
+    elif i == 10 and (playboard[0] == O_move and playboard[1] == O_move and playboard[2] == O_move) or (playboard[0] == O_move and playboard[3] == O_move and playboard[6] == O_move) or (playboard[3] == O_move and playboard[4] == O_move and playboard[5] == O_move) or (playboard[6] == O_move and playboard[7] == O_move and playboard[8] == O_move) or (playboard[1] == O_move and playboard[4] == O_move and playboard[7] == O_move) or (playboard[2] == O_move and playboard[5] == O_move and playboard[8] == O_move) or (playboard[0] == O_move and playboard[4] == O_move and playboard[8] == O_move) or (playboard[2] == O_move and playboard[4] == O_move and playboard[6] == O_move):
+        print("Игрок, играющий ноликом, выиграл!")
+        break
+    elif i == 10:
+        print("Ничья")
+        break
+    elif i < 10 and (playboard[0] == X_move and playboard[1] == X_move and playboard[2] == X_move) or (playboard[0] == X_move and playboard[3] == X_move and playboard[6] == X_move) or (playboard[3] == X_move and playboard[4] == X_move and playboard[5] == X_move) or (playboard[6] == X_move and playboard[7] == X_move and playboard[8] == X_move) or (playboard[1] == X_move and playboard[4] == X_move and playboard[7] == X_move) or (playboard[2] == X_move and playboard[5] == X_move and playboard[8] == X_move) or (playboard[0] == X_move and playboard[4] == X_move and playboard[8] == X_move) or (playboard[2] == X_move and playboard[4] == X_move and playboard[6] == X_move):
+        print("Игрок, играющий крестиком, выиграл!")
+        break
+    elif i < 10 and (playboard[0] == O_move and playboard[1] == O_move and playboard[2] == O_move) or (playboard[0] == O_move and playboard[3] == O_move and playboard[6] == O_move) or (playboard[3] == O_move and playboard[4] == O_move and playboard[5] == O_move) or (playboard[6] == O_move and playboard[7] == O_move and playboard[8] == O_move) or (playboard[1] == O_move and playboard[4] == O_move and playboard[7] == O_move) or (playboard[2] == O_move and playboard[5] == O_move and playboard[8] == O_move) or (playboard[0] == O_move and playboard[4] == O_move and playboard[8] == O_move) or (playboard[2] == O_move and playboard[4] == O_move and playboard[6] == O_move):
+        print("Игрок, играющий ноликом, выиграл!")
+        break
+    else:
+        if i % 2 != 0:
+            board_x()
+        else:
+            board_0()
+
